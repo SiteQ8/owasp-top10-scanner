@@ -27,7 +27,7 @@ Thank you for your interest in contributing to this project! We welcome contribu
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/owasp-top-10-scanner.git
+git clone https://github.com/SiteQ8/owasp-top-10-scanner.git
 cd owasp-top-10-scanner
 
 # Install dependencies
