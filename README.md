@@ -1,16 +1,16 @@
 # OWASP Top 10 Security Scanner with Nmap Integration
 
-A comprehensive Python tool that performs security assessments against the OWASP Top 10 vulnerabilities, with integrated Nmap reconnaissance capabilities.
+A Python tool that performs security assessments against the OWASP Top 10 vulnerabilities, with integrated Nmap reconnaissance capabilities.
 
 ## Features
 
-### 🔍 Comprehensive Reconnaissance
+### Comprehensive Reconnaissance
 - **Nmap Integration**: Uses nmap for initial host discovery and port scanning
 - **Service Detection**: Identifies running services and versions
-- **NSE Scripts**: Leverages Nmap Scripting Engine for vulnerability detection
+- **NSE Scripts**: Uses Nmap Scripting Engine for vulnerability detection
 - **SSL/TLS Analysis**: Checks encryption configurations
 
-### 🎯 OWASP Top 10 2021 Coverage
+### OWASP Top 10 2021 Coverage
 - **A01: Broken Access Control** - Tests for unauthorized access to directories and resources
 - **A02: Cryptographic Failures** - Identifies weak encryption and missing HTTPS
 - **A03: Injection** - Scans for SQL injection and XSS vulnerabilities
@@ -22,7 +22,7 @@ A comprehensive Python tool that performs security assessments against the OWASP
 - **A09: Logging/Monitoring Failures** - Identifies insufficient logging
 - **A10: SSRF** - Tests for Server-Side Request Forgery vulnerabilities
 
-### 📊 Professional Reporting
+### Professional Reporting
 - **Colored Terminal Output**: Easy-to-read results with severity-based colors
 - **JSON Export**: Structured output for integration with other tools
 - **Vulnerability Categorization**: Results organized by OWASP categories
