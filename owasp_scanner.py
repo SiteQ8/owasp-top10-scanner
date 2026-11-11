@@ -487,7 +487,7 @@ class OWASPTopTenScanner:
 
                             # Look for indicators of SSRF
                             if response.status_code == 200 and len(response.text) > 0:
-                                # This is a simplified check - real SSRF detection is more complex
+                                # basic SSRF check only
                                 if "root:" in response.text or "mysql" in response.text.lower():
                                     vulnerabilities.append({
                                         "category": "A10",
