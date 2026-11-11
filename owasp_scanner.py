@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 OWASP Top 10 Security Scanner with Nmap Integration
-Author: Security Professional
+Author: Ali AlEnezi
 Date: September 2025
-Description: A comprehensive Python tool that scans for OWASP Top 10 vulnerabilities 
+Description: A Python tool that scans for OWASP Top 10 vulnerabilities
              using nmap for initial reconnaissance followed by targeted vulnerability checks
 """
 
@@ -106,7 +106,7 @@ class OWASPTopTenScanner:
         print(banner)
 
     def run_nmap_scan(self):
-        """Run comprehensive nmap scan for host reconnaissance"""
+        """Run nmap scan for host reconnaissance"""
         print(f"{Fore.YELLOW}[INFO] Starting Nmap reconnaissance...{Style.RESET_ALL}")
 
         try:
@@ -161,8 +161,7 @@ class OWASPTopTenScanner:
 
     def _parse_nmap_output(self, output: str):
         """Parse nmap output to extract ports and services"""
-        lines = output.split('
-')
+        lines = output.split('\n')
 
         for line in lines:
             # Parse open ports
@@ -181,8 +180,7 @@ class OWASPTopTenScanner:
 
     def _display_nmap_summary(self):
         """Display summary of nmap results"""
-        print(f"
-{Fore.CYAN}=== NMAP SCAN SUMMARY ==={Style.RESET_ALL}")
+        print(f"\n{Fore.CYAN}=== NMAP SCAN SUMMARY ==={Style.RESET_ALL}")
         print(f"{Fore.WHITE}Open Ports Found: {len(self.open_ports)}{Style.RESET_ALL}")
 
         for port in self.open_ports:
@@ -192,8 +190,7 @@ class OWASPTopTenScanner:
 
     def scan_owasp_top_10(self):
         """Run OWASP Top 10 vulnerability scans"""
-        print(f"
-{Fore.YELLOW}[INFO] Starting OWASP Top 10 vulnerability scanning...{Style.RESET_ALL}")
+        print(f"\n{Fore.YELLOW}[INFO] Starting OWASP Top 10 vulnerability scanning...{Style.RESET_ALL}")
 
         # A01: Broken Access Control
         self._scan_broken_access_control()
@@ -431,8 +428,7 @@ class OWASPTopTenScanner:
 
         vulnerabilities = []
 
-        # This would typically integrate with CVE databases
-        # For demonstration, we'll check for common outdated software indicators
+        # No CVE database lookup, only common outdated software indicators
 
         for port in self.open_ports:
             service = self.services.get(port, 'unknown')
@@ -507,9 +503,8 @@ class OWASPTopTenScanner:
         print(f"{Fore.GREEN}[A10] Found {len(vulnerabilities)} potential SSRF issues{Style.RESET_ALL}")
 
     def generate_report(self):
-        """Generate comprehensive scan report"""
-        print(f"
-{Fore.CYAN}=== SCAN REPORT ==={Style.RESET_ALL}")
+        """Generate scan report"""
+        print(f"\n{Fore.CYAN}=== SCAN REPORT ==={Style.RESET_ALL}")
 
         # Summary statistics
         total_vulns = len(self.scan_results["owasp_vulnerabilities"])
@@ -542,12 +537,10 @@ class OWASPTopTenScanner:
                 categories[cat] = []
             categories[cat].append(vuln)
 
-        print(f"
-{Fore.CYAN}=== VULNERABILITIES BY OWASP CATEGORY ==={Style.RESET_ALL}")
+        print(f"\n{Fore.CYAN}=== VULNERABILITIES BY OWASP CATEGORY ==={Style.RESET_ALL}")
         for cat in sorted(categories.keys()):
             owasp_name = self.owasp_categories.get(cat, "Unknown Category")
-            print(f"
-{Fore.MAGENTA}{cat}: {owasp_name} ({len(categories[cat])} issues){Style.RESET_ALL}")
+            print(f"\n{Fore.MAGENTA}{cat}: {owasp_name} ({len(categories[cat])} issues){Style.RESET_ALL}")
 
             for vuln in categories[cat]:
                 severity_color = Fore.RED if vuln.get("severity") == "High" else Fore.YELLOW if vuln.get("severity") == "Medium" else Fore.GREEN
@@ -561,11 +554,9 @@ class OWASPTopTenScanner:
             try:
                 with open(self.output_file, 'w') as f:
                     json.dump(self.scan_results, f, indent=2)
-                print(f"
-{Fore.GREEN}[SUCCESS] Report saved to: {self.output_file}{Style.RESET_ALL}")
+                print(f"\n{Fore.GREEN}[SUCCESS] Report saved to: {self.output_file}{Style.RESET_ALL}")
             except Exception as e:
-                print(f"
-{Fore.RED}[ERROR] Failed to save report: {e}{Style.RESET_ALL}")
+                print(f"\n{Fore.RED}[ERROR] Failed to save report: {e}{Style.RESET_ALL}")
 
     def run_full_scan(self):
         """Run complete security scan"""
@@ -630,11 +621,9 @@ Examples:
         scanner.run_full_scan()
 
     except KeyboardInterrupt:
-        print(f"
-{Fore.YELLOW}[INFO] Scan interrupted by user{Style.RESET_ALL}")
+        print(f"\n{Fore.YELLOW}[INFO] Scan interrupted by user{Style.RESET_ALL}")
     except Exception as e:
-        print(f"
-{Fore.RED}[ERROR] Unexpected error: {e}{Style.RESET_ALL}")
+        print(f"\n{Fore.RED}[ERROR] Unexpected error: {e}{Style.RESET_ALL}")
         sys.exit(1)
 
 if __name__ == "__main__":

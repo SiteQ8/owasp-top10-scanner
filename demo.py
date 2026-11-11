@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 OWASP Scanner Demo Script
-This script demonstrates how to use the OWASP Top 10 scanner programmatically
+Usage examples for the OWASP Top 10 scanner
 """
 
 import sys
@@ -25,7 +25,7 @@ def run_demo_scan():
     print("Command: python owasp_scanner.py -t example.com -p 80,443,8080,8443 -o webapp_scan.json")
     print("This scans common web ports and saves results to JSON")
 
-    # Example 3: Comprehensive scan
+    # Example 3: Full network scan
     print("\n📋 Example 3: Comprehensive network scan")
     print("Command: python owasp_scanner.py -t 192.168.1.0/24 -p 1-65535 -o network_scan.json")
     print("This performs a full port scan with OWASP vulnerability testing")
